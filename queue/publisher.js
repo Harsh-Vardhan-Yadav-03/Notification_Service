@@ -2,7 +2,7 @@ require("dotenv").config();
 const amqp =  require("amqplib");
 
 async function sendToQueue( notification){
-    const connection = await amqp.connect("process.env.RABBITMQ_URI");
+    const connection = await amqp.connect(process.env.RABBITMQ_URI);
     const channel = await connection.createChannel();
     const queue = 'notification';
     
